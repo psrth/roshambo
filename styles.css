@@ -92,7 +92,7 @@ header > h1 {
     font-size: 25px;
 }
 
-#rules {
+/* #rules {
     position: relative;
     color: white;
     background-color: #e9ecef;
@@ -103,11 +103,11 @@ header > h1 {
     text-align: center;
     padding: 10px;
     font-size: 15px;
-}
+} */
 
 .footer {
     background-color: #e9ecef;
-    margin-top: 45px;
+    margin-top: 95px;
     padding: 20px;
     color: white;
     font-size: 20px;
