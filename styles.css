@@ -76,9 +76,54 @@ header > h1 {
     margin: 8px 15px;
     border-radius: 50%;
     display: inline-block;
+    transition: all 0.3s ease;
 }
 
 .choice:hover {
     cursor: pointer;
     background-color: #212529;
 }
+
+#action-msg {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.footer {
+    background-color: #e9ecef;
+    margin-top: 140px;
+    padding: 20px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+.footer > container {
+    text-align: center;
+}
+
+/* unvisited link */
+a:link {
+    color: #212529;
+    text-decoration: none;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: #212529;
+    text-decoration: none;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: #212529;
+    /* text-decoration: underline; */
+  }
+  
+  /* selected link */
+  a:active {
+    color: #212529;
+    text-decoration: underline;
+  }
