@@ -72,6 +72,9 @@ function win (user, comp) {
         result_div.innerHTML = "Paper disapproves Spock. You win!";
     }
 
+    // change glow
+    document.getElementById(user).classList.add('green-glow');
+
 }
 
 function lose(user, comp) {
@@ -112,11 +115,16 @@ function lose(user, comp) {
     if (user === "paper" && comp === "scissors") {
         result_div.innerHTML = "Scissors cut Paper. You lose!";
     }
+
+    // change glow
+    document.getElementById(user).classList.add('red-glow');
 }
 
 function draw(user, comp) {
     console.log("game is a draw.");
     result_div.innerHTML = "Both selected "+user+". It's a draw!";
+    // change glow
+    document.getElementById(user).classList.add('grey-glow');
 }
 
 // user choice
