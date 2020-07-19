@@ -6,14 +6,14 @@ console.log("thanks for peeking beneath the hood :))");
 
 // cacheing the DOM
 
-const userScore = 0;
-const computerScore = 0;
+let userScore = 0;
+let computerScore = 0;
 
 const userScore_span = document.getElementById("user-score");
 const computerScore_span = document.getElementById("computer-score");
 
 const scoreBoard_div = document.querySelector(".score-board");
-const result_div = document.querySelector(".result");
+const result_div = document.querySelector(".result > p");
 
 const rock_div = document.getElementById("rock");
 const lizard_div = document.getElementById("lizard");
@@ -32,12 +32,100 @@ function getComputerChoice () {
     return choices[randomNumber];
 }
 
+function win (user, comp) {
+
+    console.log("user wins.");
+
+    // updating user scoreboard
+    userScore++;
+    userScore_span.innerHTML = userScore;
+
+    // updating the result div when WIN
+    if (user === "rock" && comp === "scissors") {
+        result_div.innerHTML = "Rock crushes Scissors. You win!";
+    }
+    if (user === "rock" && comp === "lizard") {
+        result_div.innerHTML = "Rock crushes Lizard. You win!";
+    }
+    if (user === "scissors" && comp === "paper") {
+        result_div.innerHTML = "Scissors cut Paper. You win!";
+    }
+    if (user === "scissors" && comp === "lizard") {
+        result_div.innerHTML = "Scissors decapitate Lizard. You win!";
+    }
+    if (user === "spock" && comp === "scissors") {
+        result_div.innerHTML = "Spock smashes Scissors. You win!";
+    }
+    if (user === "spock" && comp === "rock") {
+        result_div.innerHTML = "Spock vaporizes Rock. You win!";
+    }
+    if (user === "lizard" && comp === "spock") {
+        result_div.innerHTML = "Lizard poisons Spock. You win!";
+    }
+    if (user === "lizard" && comp === "paper") {
+        result_div.innerHTML = "Lizard eats Paper. You win!";
+    }
+    if (user === "paper" && comp === "rock") {
+        result_div.innerHTML = "Paper covers Rock. You win!";
+    }
+    if (user === "paper" && comp === "spock") {
+        result_div.innerHTML = "Paper disapproves Spock. You win!";
+    }
+
+}
+
+function lose(user, comp) {
+    console.log("computer wins.");
+
+    // updating comp scoreboard
+    computerScore++;
+    computerScore_span.innerHTML = computerScore;
+
+    // updating the result div when LOSE
+    if (user === "rock" && comp === "spock") {
+        result_div.innerHTML = "Spock vaporizes Rock. You lose!";
+    }
+    if (user === "rock" && comp === "paper") {
+        result_div.innerHTML = "Paper covers Rock. You lose!";
+    }
+    if (user === "scissors" && comp === "rock") {
+        result_div.innerHTML = "Rock crushes Scissors. You lose!";
+    }
+    if (user === "scissors" && comp === "spock") {
+        result_div.innerHTML = "Spock smashes Scissors. You lose!";
+    }
+    if (user === "spock" && comp === "paper") {
+        result_div.innerHTML = "Paper disapproves Spock. You lose!";
+    }
+    if (user === "spock" && comp === "lizard") {
+        result_div.innerHTML = "Lizard poisons Spock. You lose!";
+    }
+    if (user === "lizard" && comp === "rock") {
+        result_div.innerHTML = "Rock crushes Lizard. You lose!";
+    }
+    if (user === "lizard" && comp === "scissors") {
+        result_div.innerHTML = "Scissors decapitate Lizard. You lose!";
+    }
+    if (user === "paper" && comp === "lizard") {
+        result_div.innerHTML = "Lizard eats Paper. You lose!";
+    }
+    if (user === "paper" && comp === "scissors") {
+        result_div.innerHTML = "Scissors cut Paper. You lose!";
+    }
+}
+
+function draw(user, comp) {
+    console.log("game is a draw.");
+    result_div.innerHTML = "Both selected "+user+". It's a draw!";
+}
+
 // user choice
 function game (userChoice) {
     const computerChoice = getComputerChoice();
     console.log("computer clicked "+computerChoice);
 
     switch (userChoice + computerChoice) {
+
         // all USER win cases
         case "rockscissors":
         case "rocklizard":
@@ -49,7 +137,7 @@ function game (userChoice) {
         case "lizardpaper":
         case "paperrock":
         case "paperspock":
-            console.log("user wins.");
+            win(userChoice, computerChoice);
             break;
 
         // all COMP win cases
@@ -63,7 +151,7 @@ function game (userChoice) {
         case "lizardscissors":
         case "paperscissors":
         case "paperlizard":
-            console.log("computer wins.");
+            lose(userChoice, computerChoice);
             break;
 
         // all DRAW cases
@@ -72,12 +160,9 @@ function game (userChoice) {
         case "scissorsscissors":
         case "lizardlizard":
         case "spockspock":
-            console.log("game is a draw.");
+            draw(userChoice, computerChoice);
             break;
     }
-
-
-
 }
 
 

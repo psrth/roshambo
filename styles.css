@@ -47,13 +47,13 @@ header > h1 {
 #user-label {
     position: absolute;
     top: 28px;
-    left: -28px;
+    left: -40px;
 }
 
 #comp-label {
     position: absolute;
     top: 28px;
-    right: -28px;
+    right: -50px;
 }
 
 .result {
