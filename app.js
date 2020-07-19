@@ -74,6 +74,7 @@ function win (user, comp) {
 
     // change glow
     document.getElementById(user).classList.add('green-glow');
+    setTimeout(function() { document.getElementById(user).classList.remove('green-glow')}, 400);
 
 }
 
@@ -118,13 +119,15 @@ function lose(user, comp) {
 
     // change glow
     document.getElementById(user).classList.add('red-glow');
+    setTimeout(function() { document.getElementById(user).classList.remove('red-glow')}, 400);
 }
 
 function draw(user, comp) {
     console.log("game is a draw.");
     result_div.innerHTML = "Both selected "+user+". It's a draw!";
     // change glow
-    document.getElementById(user).classList.add('grey-glow');
+    document.getElementById(user).classList.add('gray-glow');
+    setTimeout(function() { document.getElementById(user).classList.remove('gray-glow')}, 400);
 }
 
 // user choice
